@@ -4,7 +4,7 @@ import './App.css'
 
 function App() {
   return (
-    <div>
+    <div className="flex justify-center items-center min-h-screen">
       <Card/>
     </div>
   )

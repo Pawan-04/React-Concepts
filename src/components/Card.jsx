@@ -2,44 +2,30 @@ import React from 'react'
 
 const Card = () => {
 
-  var arr = [{
-    img: "https://images.unsplash.com/photo-1773332585749-5146862ba746?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxfHx8ZW58MHx8fHx8",
-    title: "Beautiful Landscape",
-    description: "This is a stunning image of a natural landscape featuring mountains and a serene lake. Perfect for relaxation and inspiration.",
-    view:false
-  },
-
-  {
-    img: "https://images.unsplash.com/photo-1769788873128-442998aed3da?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8",
-    title: "Drive Towards Mountains ",
-    description: "This is a stunning image of a natural landscape featuring mountains and a serene lake. Perfect for relaxation and inspiration.",
-    view:true
-  },
-
-  {
-    img: "https://images.unsplash.com/photo-1772311283542-1c537cff0887?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxN3x8fGVufDB8fHx8fA%3D%3D",
-    title: "Lights in the City",
-    description: "This is a stunning image of a natural landscape featuring mountains and a serene lake. Perfect for relaxation and inspiration.",
-    view:false
-  }
+  const song = [
+    {name:"Brwon Tang",
+      description:"This is the description for song 1. Enjoy the melody and rhythm.",
+    },
+    {name:"Mahi ve",
+      description:"This is the description for song 2. Feel the beat and vibe.",
+    }
   ]
+
+  const handleDownload = ()=>{
+    alert("Hello")
+  }
   return (
-    <div className="flex space-x-4">
+    <div className="flex flex-col gap-6 items-center justify-center max-w-md mx-auto">
+      {song.map((item,index) =>( 
+        <div className="p-6 bg-gradient-to-br from-slate-100 to-slate-200 border border-slate-300 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 w-full" key={index}>
+        <h3 className="text-xl font-bold text-slate-800 mb-2">{item.name}</h3>
+        <p className="text-slate-600 mb-4 leading-relaxed">{item.description}</p>
+        <button className="px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-md hover:shadow-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105"
+        onClick={handleDownload}>Download</button>
+      </div>
 
-      {arr.map((elem, index) => (<div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-        <img className="w-full h-48 object-cover" src={elem.img} alt="Sample Image" />
-        <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2">{elem.title}</div>
-          <p className="text-gray-700 text-base">
-            {elem.description}
-          </p>
-          <button className={`${elem.view ? 'bg-green-500': 'bg-blue-500'} hover:bg-green-700 text-white font-bold py-2 px-4 rounded`}>
-              {elem.view ? 'Visited' : 'Visit'}
-          </button>
-        </div>
-      </div>))}
-
-
+      ) )}
+      
     </div>
   )
 }
